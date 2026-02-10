@@ -1,0 +1,9 @@
+<div class="kontejner" style="flex-direction: column; gap: 1rem;">
+    <h2 class="text-h1">Javni filmovi</h2>
+    <div class="flex flex-wrap gap-lg" style="width: 100%; justify-content: center;">
+        <app-kartica-film *ngFor="let film of filmovi()" [film]="film"></app-kartica-film>
+    </div>
+    <div class="sviJavniFilmoviKontejner" *ngIf="prikaziBtn()">
+        <button class="btn btn-grad " routerLink="/sviJavniFilmovi">Svi javni filmovi</button>
+    </div>
+</div>

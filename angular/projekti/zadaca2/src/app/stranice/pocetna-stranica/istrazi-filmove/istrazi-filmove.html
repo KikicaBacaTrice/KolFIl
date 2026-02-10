@@ -1,0 +1,22 @@
+<div class="kontejner" style="flex-direction: column; gap: 1rem;">
+    <div class="flex-center" style="justify-content: space-between; margin-bottom: 2rem;">
+        <h2 class="text-h1">Istrazi filmove</h2>
+        <div>
+            <input id="filter" type="search" placeholder="Pretraži animirane filmove" class="input"
+                style="max-width: 420px; width: 100%;" [value]="trazi()" (input)="onFilterInput($event)" />
+        </div>
+    </div>
+
+    <div class="flex flex-wrap gap-lg" style="width: 100%; justify-content: center;">
+        <app-kartica-film *ngFor="let film of filmovi()" [film]="film"></app-kartica-film>
+    </div>
+    <p class="text-body" *ngIf="greska()">{{ greska() }}</p>
+    <div id="stranicenje" style="display: flex; gap: 0.5rem; justify-content: center;" *ngIf="ukupnoStranica() > 0">
+        <button *ngIf="stranica()>1" (click)="ucitajStranicu(1)">&lt;&lt;</button>
+        <button *ngIf="stranica()>1" (click)="ucitajStranicu(stranica() - 1)">&lt;</button>
+        <button>{{ stranica() }}/{{ ukupnoStranica() }}</button>
+        <button *ngIf="stranica()<ukupnoStranica()" (click)="ucitajStranicu(stranica() + 1)">&gt;</button>
+        <button *ngIf="stranica()<ukupnoStranica()" (click)="ucitajStranicu(ukupnoStranica())">&gt;&gt;</button>
+
+    </div>
+</div>

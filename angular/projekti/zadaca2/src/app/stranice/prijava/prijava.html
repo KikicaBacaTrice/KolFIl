@@ -1,0 +1,32 @@
+<main>
+    <a class="forme-logo" routerLink="/">KolFil</a>
+    <div id="poruka" [style.display]="poruka()? 'block' : 'none'" [innerHTML]="poruka()"></div>
+    <div class="prijava-kontejner">
+        <form id="prijava-forma" (ngSubmit)="prijaviKorisnika()">
+            <h3>Prijava</h3>
+            <label for="korime">Korisničko ime</label>
+            <input name="korime" type="text" [(ngModel)]="korime" />
+            <label for="lozinka">Lozinka</label>
+            <input name="lozinka" type="password" [(ngModel)]="lozinka" />
+            <a routerLink="/registracija">Nemate korisnički račun?</a>
+            <input type="submit" value="Prijava" />
+        </form>
+        <div class="podaci-prijava">
+            <div class="podaci-prijava-kontejner">
+                <h3>Admin</h3>
+                <p>Korisnicko ime: admin</p>
+                <p>Lozinka: rwa</p>
+            </div>
+            <div class="podaci-prijava-kontejner">
+                <h3>Moderator</h3>
+                <p>Korisnicko ime: moderator</p>
+                <p>Lozinka: rwa</p>
+            </div>
+            <div class="podaci-prijava-kontejner">
+                <h3>Obični korisnik</h3>
+                <p>Korisnicko ime: obican</p>
+                <p>Lozinka: rwa</p>
+            </div>
+        </div>
+    </div>
+</main>

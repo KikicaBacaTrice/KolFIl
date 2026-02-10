@@ -1,0 +1,10 @@
+<div class="kartica" [style.background-image]="pozadina()">
+    <a [routerLink]="['/detaljiKolekcije', kolekcija?.id]" class="kartica-link">
+        <div class="kartica-sadrzaj">
+            <h2 class="naslov-filma">{{ kolekcija?.naziv }}</h2>
+            <div class="flex flex-wrap gap-sm | opis-filma">
+                <span class="znacka">{{ brojFilmova() }} filmova</span>
+            </div>
+        </div>
+    </a>
+</div>

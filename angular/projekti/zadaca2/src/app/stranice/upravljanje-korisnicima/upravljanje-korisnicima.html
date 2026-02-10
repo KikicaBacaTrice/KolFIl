@@ -1,0 +1,116 @@
+<main class="admin-wrapper makni-od-navigacije">
+    <div class="admin-zaglavlje">
+        <div>
+            <p class="znacka">Admin konzola</p>
+            <h1 class="text-h1">Upravljanje korisnicima</h1>
+            <p class="text-body">
+                Promijenite uloge, blokirajte račune i dodajte korisnike u kolekcije.
+            </p>
+        </div>
+        <p id="admin-poruka" class="poruka" [class.uspjeh]="porukaKlasa() === 'uspjeh'"
+            [class.greska]="porukaKlasa() === 'greska'">{{ poruka()}}</p>
+    </div>
+    <section id="admin-korisnici" class="admin-kartica shadow-kartica">
+        <table id="tablica-korisnici">
+            <thead>
+                <tr *ngIf="jeAdmin(); else korisnikZaglavlje">
+                    <th>Korime</th>
+                    <th>Ime i prezime</th>
+                    <th>Email</th>
+                    <th>Uloga</th>
+                    <th>Kolekcije</th>
+                    <th>Blokiran</th>
+                    <th>Akcije</th>
+                </tr>
+                <ng-template #korisnikZaglavlje>
+                    <tr>
+                        <th>Korime</th>
+                        <th>Kolekcije</th>
+                        <th>Akcije</th>
+                    </tr>
+                </ng-template>
+            </thead>
+            <tbody>
+                <tr *ngFor="let korisnik of korisnici()" [class.blokiran-korisnik]="oznaciBlokiran(korisnik)">
+                    <td>
+                        <div class="korime-s-znackom">
+                            <span>{{korisnik.korime}}</span>
+                            <span *ngIf="oznaciBlokiran(korisnik)" class="znacka blokiran-znacka">Blokiran</span>
+                        </div>
+                    </td>
+                    <td *ngIf="jeAdmin()">{{prikaziImePrezime(korisnik)}}</td>
+                    <td *ngIf="jeAdmin()">{{korisnik.email}}</td>
+                    <td *ngIf="jeAdmin()">
+                        <ng-container *ngIf="korisnik.tipKorisnikaId === 1; else ulogaSelect">
+                            Admin
+                        </ng-container>
+                        <ng-template #ulogaSelect>
+                            <div class="flex flex-center gap-md">
+                                <span>{{korisnik.tipKorisnikaId === 3 ? "Moderator" : "Korisnik"}}</span>
+                                <select [disabled]="jeUlogaAzuriranje(korisnik.korime)"
+                                    [value]="korisnik.tipKorisnikaId" (change)="
+                                    promijeniUlogu(korisnik, pretvoriUNumber($any($event.target).value))
+                                  ">
+                                    <option *ngFor="let uloga of dozvoljeneUloge" [value]="uloga.id"
+                                        [selected]="uloga.id === korisnik.tipKorisnikaId">
+                                        {{ uloga.naziv }}
+                                    </option>
+                                </select>
+                            </div>
+                        </ng-template>
+                    </td>
+                    <td>
+                        <ng-container *ngIf="korisnik.kolekcije?.length; else bezKolekcija">
+                            <div class="kolekcije-znacke">
+                                <span *ngFor="let kolekcija of korisnik.kolekcije" class="znacka">
+                                    {{ kolekcija.naziv || ('Kolekcija ' + kolekcija.id) }}
+                                </span>
+                            </div>
+                        </ng-container>
+                        <ng-template #bezKolekcija>-</ng-template>
+                    </td>
+                    <td>{{korisnik.racunBlokiran ? "Da" : "Ne"}}</td>
+                    <td>
+                        <div class="akcije">
+                            <ng-container *ngIf="jeAdmin()">
+                                <button [disabled]="
+                                  korisnik.tipKorisnikaId === 1 ||
+                                  jeBlokadaAzuriranje(korisnik.korime)
+                                " (click)="promijeniBlokadu(korisnik)">
+                                    {{
+                                    korisnik.tipKorisnikaId === 1
+                                    ? 'Admin se ne moze blokirati'
+                                    : korisnik.racunBlokiran
+                                    ? 'Odblokiraj'
+                                    : 'Blokiraj'
+                                    }}
+                                </button>
+                                <button *ngIf="korisnik.tipKorisnikaId !== 1" class="gumb-opasno"
+                                    [disabled]="jeBrisanjeAzuriranje(korisnik.korime)"
+                                    (click)="potvrdiBrisanje(korisnik)">
+                                    Obrisi korisnika
+                                </button>
+                            </ng-container>
+                            <div class="flex gap-sm" *ngIf="korisnik.id !== undefined && korisnik.id !== null">
+                                <select #kolekcijaSelect class="select-kolekcija">
+                                    <option *ngIf="kolekcije().length === 0" [value]="''">
+                                        Nema kolekcija
+                                    </option>
+                                    <option *ngFor="let kolekcija of kolekcije()" [value]="kolekcija.id">
+                                        {{ kolekcija.naziv || ('Kolekcija ' + kolekcija.id) }}
+                                    </option>
+                                </select>
+                                <button [disabled]="
+                                  kolekcije().length === 0 ||
+                                  jeDodavanjeAzuriranje(korisnik.id)
+                                " (click)="dodajUKolekciju(korisnik, kolekcijaSelect.value)">
+                                    Dodaj u kolekciju
+                                </button>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</main>

@@ -1,0 +1,97 @@
+.dokumentacija {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  color: var(--boja-tekst);
+}
+
+.stupac {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.era-model {
+  width: 500px;
+  height: auto;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.servis,
+.napravljeno {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.napravljeno {
+  .stupac {
+    align-items: flex-start;
+  }
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+h1,
+h2,
+h3 {
+  letter-spacing: 0.02em;
+}
+
+p,
+li,
+td {
+  color: var(--boja-tekst-sekundarna);
+  line-height: 1.5;
+}
+
+ol {
+  padding-left: 1.5rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 14px;
+  overflow: hidden;
+  font-size: 0.95rem;
+}
+
+thead {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.75rem 0.85rem;
+  vertical-align: top;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+th {
+  color: var(--boja-tekst);
+  font-weight: 700;
+}
+
+code {
+  color: var(--boja-zuta);
+  font-weight: 600;
+}

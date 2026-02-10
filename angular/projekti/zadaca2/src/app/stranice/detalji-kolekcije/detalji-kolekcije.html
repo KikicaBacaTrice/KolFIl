@@ -1,0 +1,28 @@
+<main id="kolekcija-main" class="makni-od-navigacije">
+  <p id="poruka" class="text-body" *ngIf="poruka()">{{ poruka() }}</p>
+  <section id="kolekcija-hero" *ngIf="kolekcija() as k">
+    <div id="kolekcija-detalji" class="kolekcija-detalji">
+      <h1 class="text-h1">{{ k.naziv || ('Kolekcija ' + k.id) }}</h1>
+      <p class="text-body">{{ k.opis || 'Nema opisa kolekcije.' }}</p>
+      <div class="flex gap-sm" id="kolekcija-znacke">
+        <span class="znacka">{{ k.brojFilmova || filmovi().length }} filmova</span>
+        <span class="znacka">
+          {{ kolekcijaJavna(k) ? 'Javna kolekcija' : 'Privatna kolekcija' }}
+        </span>
+      </div>
+    </div>
+    <img class="poster" *ngIf="slikaKolekcije(k)" [src]="slikaKolekcije(k)" [alt]="k.naziv || 'Kolekcija'"
+      id="kolekcija-slika">
+  </section>
+  <section id="kolekcija-filmovi-sekcija" *ngIf="kolekcija() as k">
+    <h2 class="text-h1" style="margin-bottom: 0.5rem;">Filmovi u kolekciji</h2>
+    <div id="kolekcija-filmovi" class="flex flex-wrap gap-lg" style="width: 100%;"
+      *ngIf="filmovi().length; else nemaFilmova">
+      <app-kartica-film *ngFor="let film of filmovi()" [film]="mapirajFilmKarticu(film)" [prikaziBrisanje]="true"
+        [onemoguciBrisanje]="uklanjanje() === film.id" (brisanje)="makniFilmIzKartice($event)"></app-kartica-film>
+    </div>
+    <ng-template #nemaFilmova>
+      <p class="text-body">Kolekcija nema filmova.</p>
+    </ng-template>
+  </section>
+</main>

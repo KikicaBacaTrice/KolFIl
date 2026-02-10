@@ -1,0 +1,17 @@
+<div class="kartica" [style.background-image]="pozadina()">
+    <a [routerLink]="detaljiLink()" class="kartica-link">
+        <div class="kartica-sadrzaj">
+            <h2 class="naslov-filma">{{ naslov() }}</h2>
+            <div class="flex flex-wrap gap-sm opis-filma">
+                <span class="znacka" *ngIf="metrika()">{{ metrika() }}</span>
+                <span class="znacka" *ngFor="let zanr of zanroviNazivi().slice(0, 5)">
+                    {{ zanr }}
+                </span>
+            </div>
+            <button class="btn btn-grad btn-makni" type="button" *ngIf="prikaziBrisanje" [disabled]="onemoguciBrisanje"
+                (click)="klikBrisanja($event)">
+                {{ tekstBrisanja }}
+            </button>
+        </div>
+    </a>
+</div>

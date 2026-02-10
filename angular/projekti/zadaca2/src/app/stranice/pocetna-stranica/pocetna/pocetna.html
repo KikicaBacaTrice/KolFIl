@@ -1,0 +1,10 @@
+<main class="pocetna">
+    <app-javne-kolekcije></app-javne-kolekcije>
+    <app-javni-filmovi [jeLiPrijavljen]="jePrijavljen()"></app-javni-filmovi>
+    <section id="najbolje-ocjenjeni" *ngIf="jePrijavljen()">
+        <app-najbolje-ocijenjeni></app-najbolje-ocijenjeni>
+    </section>
+    <section id="istrazi-filmove" *ngIf="jePrijavljen()">
+        <app-istrazi-filmove></app-istrazi-filmove>
+    </section>
+</main>

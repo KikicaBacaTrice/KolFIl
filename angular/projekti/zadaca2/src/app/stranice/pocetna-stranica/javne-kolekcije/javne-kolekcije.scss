@@ -1,0 +1,201 @@
+.kontejner {
+  position: relative;
+  min-height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  align-items: center;
+  gap: 2rem;
+  overflow-x: hidden;
+
+  .uvodni-tekst {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    z-index: 2;
+    display: grid;
+    align-items: center;
+    justify-content: start;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 80%;
+      height: 100%;
+      background-color: #0c0f1f;
+      z-index: -1;
+    }
+    .pozadinska-ilustracija {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top left;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .tekst-kontejner {
+      display: grid;
+      align-items: start;
+      gap: 1.5rem;
+      margin-left: 5rem;
+      margin-top: -5rem;
+      width: 100ch;
+
+      .text-h1 {
+        font-size: 4rem;
+        position: relative;
+        z-index: 2;
+        text-wrap: balance;
+        line-height: 1.1;
+        &::after {
+          content: "Svijet animacija na jednom mjestu";
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: auto;
+          color: rgba(12, 15, 31, 0.5);
+          z-index: -1;
+          filter: blur(10px);
+        }
+      }
+      .text-body {
+        position: relative;
+        z-index: 2;
+        text-wrap: balance;
+        font-size: 1.15rem;
+        color: white;
+      }
+    }
+  }
+}
+
+.carousel {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-items: center;
+  margin: 0 3rem 0 0;
+  z-index: 0;
+
+  .carousel-viewport {
+    position: relative;
+    height: 550px;
+
+    $trajanje: 500ms;
+    .carousel-card {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+
+      app-kartica-sadrzaj {
+        display: block;
+        transform: scale(1.1);
+        transform-origin: center;
+      }
+
+      &.is-out.dir-next {
+        animation: card-out-next $trajanje ease forwards;
+        z-index: 0;
+      }
+
+      &.is-in.dir-next {
+        animation: card-in-next $trajanje ease forwards;
+        z-index: 2;
+      }
+
+      &.is-out.dir-prev {
+        animation: card-out-prev $trajanje ease forwards;
+        z-index: 0;
+      }
+
+      &.is-in.dir-prev {
+        animation: card-in-prev $trajanje ease forwards;
+        z-index: 2;
+      }
+    }
+  }
+
+  .carousel-btn-kontejner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    z-index: 11;
+
+    .carousel-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background-color: rgba(255, 255, 255, 0.1);
+      color: var(--boja-tekst);
+      font-size: 1.25rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition:
+        transform 200ms ease,
+        border-color 200ms ease,
+        background-color 200ms ease;
+
+      &:hover {
+        transform: translateY(-1px);
+        border-color: rgba(249, 160, 27, 0.6);
+      }
+    }
+  }
+
+  .carousel-tocke {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+
+    .carousel-tocka {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.25);
+      transition:
+        transform 200ms ease,
+        background-color 200ms ease;
+
+      &.aktivna-kolekcija {
+        background: var(--boja-zuta);
+        transform: scale(1.2);
+      }
+    }
+  }
+}
+
+@keyframes card-in-next {
+  from {
+    transform: translateX(30vw);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes card-out-next {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50vw);
+  }
+}

@@ -1,0 +1,625 @@
+<main class="dokumentacija stupac makni-od-navigacije">
+    <div class="stupac">
+        <h1>O autoru</h1>
+        <div class="stupac">
+            <p>Ime i prezime: Nikola Kihas</p>
+            <p>FOI e-mail: nkihas23@student.foi.hr</p>
+            <img src="/slike/Slika-250x250.png" alt="Moja slika">
+            <a href="/slike/ERA-model-Nikola Kihas.png" target="_blank">
+                <img src="/slike/ERA-model-Nikola Kihas.png" alt="ERA model" style="width: 500px; height: auto;">
+            </a>
+        </div>
+    </div>
+    <hr>
+    <div class="servis">
+        <h1 style="text-align: center;font-size: 2.5rem; color: var(--boja-zuta);">Specifikacija implementacije servis
+        </h1>
+        <h2 style="text-align: center; font-size: 2rem; color: var(--boja-zuta);">Zadaća 2</h2>
+        <section>
+            <h3>Dorada servisa</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Putanja</th>
+                        <th>Metoda</th>
+                        <th>Opis</th>
+                        <th>Pozitivno</th>
+                        <th>Negativno</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>/api/sesija</code></td>
+                        <td>GET</td>
+                        <td>Dohvati je li sesija aktivna</td>
+                        <td>Objekt korisnika &#123;korime, tipKorisnikaId&#125;</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/odjava</code></td>
+                        <td>POST</td>
+                        <td>Ugasi sesiju</td>
+                        <td>200 Uspješna odjava</td>
+                        <td>500 &#123;"greska":"greska na serveru"&#125;</td>
+                    </tr>
+                    <tr>
+                        <td><code>/aktivacijaRacuna</code></td>
+                        <td>GET</td>
+                        <td>Aktivira račun nakon što ga je korisnik napravio</td>
+                        <td>200 Uspješna aktivacija računa</td>
+                        <td>400 neispravni podaci;500 &#123;"greska":"greska na serveru"&#125;</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/javniFilmoviFilter</code></td>
+                        <td>GET</td>
+                        <td>Vraća niz filmova koji zadovoljavaju filtriranje</td>
+                        <td>200 Lista filmova</td>
+                        <td>500 &#123;"greska":"greska na serveru"&#125;</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <div class="napravljeno">
+            <h2>Napravljeni funkcionalni i nefunkcionalni zzahtjevi Web aplikacije za zadaću 2</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Uloga</th>
+                        <th>Funkcionalnost</th>
+                        <th>Napravljeno</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>-</td>
+                        <td>1&#41; Ažurirana tablica koji su dijelovi servisa napravljeni</td>
+                        <td>Ažurirana tablica koji su dijelovi servisa napravljeni</td>
+                    </tr>
+                    <tr>
+                        <td>-</td>
+                        <td>2&#41; Ažurirana tablica napravljenih funkcionalnih i nefunkcionalnih zahtjeva</td>
+                        <td>Ažurirana tablica napravljenih funkcionalnih i nefunkcionalnih zahtjeva</td>
+                    </tr>
+                    <tr>
+                        <td>-</td>
+                        <td>3&#41; Dokumentaciju treba ugraditi unutar angular aplikacije</td>
+                        <td>Dokumentacija ugrađena unutar angular aplikacije</td>
+                    </tr>
+                    <tr>
+                        <td>-</td>
+                        <td>4&#41; Pokretanje aplikacije</td>
+                        <td>Za pokretanje aplikacije potrebno je napraviti <code>npm run pripremi</code>, zatim
+                            <code>npm run zadaca</code> kako bi se pokrenuo poslužitelj na localhost:12222 bez
+                            kompajliranja. Aplikaciju je također moguće pokrenuti preko <code>ng serve</code>, no
+                            prethodno je potrebno imati upaljeni poslužitelj kako bi se moglo pristupiti rest servisu
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>-</td>
+                        <td>5&#41; Pozadinski dio servisa sada poslužuje kompajliranu verziju Angular aplikacije na
+                            početnoj korijenskoj putanji (/).</td>
+                        <td>U pregledniku joj se pristupa preko <b>http://localhost:12222</b></td>
+                    </tr>
+                    <tr>
+                        <td>-</td>
+                        <td>6&#41; Iz konfiguracijske datoteke su izbrisani TMDB ključevi</td>
+                        <td>Iz konfiguracijske datoteke su izbrisani TMDB ključevi</td>
+                    </tr>
+                    <tr>
+                        <td>-</td>
+                        <td>7&#41; REST servis je nadograđen i zahtjevi se šalje preko <b>fetch</b></td>
+                        <td>REST servis je nadograđen i zahtjevi se šalje preko <b>fetch</b></td>
+                    </tr>
+                    <tr>
+                        <td>-</td>
+                        <td>9&#41; Klijentski dio je prebačen u Angular s TypeScript-om i SCSS-om</td>
+                        <td>Klijentski dio je prebačen u Angular s TypeScript-om i SCSS-om</td>
+                    </tr>
+                    <tr>
+                        <td>-</td>
+                        <td>10&#41; Iz <b>config.json</b> se čitaju informacije o bazičnoj adresi i portu</td>
+                        <td>Iz <b>config.json</b> se čitaju informacije o bazičnoj adresi i portu</td>
+                    </tr>
+                    <tr>
+                        <td>-</td>
+                        <td>11&#41; Dizajn stranica je dorađen te se koristi SCSS sintaksa</td>
+                        <td>Dizajn stranica je dorađen te se koristi SCSS sintaksa</td>
+                    </tr>
+                    <tr>
+                        <td>Gost</td>
+                        <td>13&#41; Aktivacija računa preko e-maila</td>
+                        <td>
+                            Kako bi se korisnik mogao prijaviti u korisnički račun prethodno je potrebno
+                            aktivirati račun preko e-maila.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Gost</td>
+                        <td>14&#41; Korisnik se ne može prijaviti ukoliko mu račun nije aktivan </td>
+                        <td>
+                            Kako bi se korisnik mogao prijaviti u korisnički račun prethodno je potrebno
+                            aktivirati račun preko e-maila.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Korisnik</td>
+                        <td>15&#41; Pretraživanja javnog <a routerLink="/sviJavniFilmovi"
+                                style="color: var(--boja-zuta);">multimedijskog sadržaja</a> </td>
+                        <td>
+                            Kod prijavljenog korisnika za javni multimedijski sadžraj dodati
+                            pretraživanje po nazivu &#40;tekstualno&#41;. Mora biti upisano minimalno 3 znaka da bi
+                            se pretraživalo. Samo pretraživanje radi poslužiteljska strana koja vraća samo potrebne
+                            podatke klijentu.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Korisnik</td>
+                        <td>16&#41; Filtriranje i sortiranje javnog <a routerLink="/sviJavniFilmoviFiltriranje"
+                                style="color: var(--boja-zuta);">multimedijskog
+                                sadržaja</a> </td>
+                        <td>
+                            Kod prijavljenog korisnik za javni multimedijski sadržaj dodati filtriranje
+                            po ocjeni &#40;Korisnik odeđuje min i max ocjenu&#41;. Također, korisnik javni
+                            multimedijski sadržaj može sortirati po datumu premijere kao i po broju glasova. Moguće
+                            je filtrirati po samo jednom ili svim poljima istovremeno. Ako ništa nije odabrano, ne
+                            vraća se ništa. Samo filtriranje radi poslužiteljska strana koja vraća samo potrebne
+                            podatke klijentu.
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div>
+            <h2>Nije napravljeno</h2>
+            <ol>
+                <li>Zadaci za dodatne bodove.</li>
+            </ol>
+        </div>
+
+        <h2 style="text-align: center; font-size: 2rem; color: var(--boja-zuta);">Zadaća 1</h2>
+
+        <section>
+            <h3>TMDB resursi</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Putanja</th>
+                        <th>Metoda</th>
+                        <th>Opis</th>
+                        <th>Pozitivno</th>
+                        <th>Negativno</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>/api/gost/tmdb/zanr</code></td>
+                        <td>GET</td>
+                        <td>Dohvat TMDB zanrova &#40;prijava&#41;</td>
+                        <td>200 JSON lista zanrova</td>
+                        <td>403 bez sesije; 500 &#123;"greska":"greska na serveru"&#125;</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/gost/tmdb/zanr/postavi</code></td>
+                        <td>POST</td>
+                        <td>Spremi TMDB zanrove u lokalnu bazu &#40;prijava&#41;</td>
+                        <td>200 &#123;"uspjeh":true,"dodano":n&#125;</td>
+                        <td>403 bez sesije; 500 &#123;"greska":"greska na serveru"&#125;</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/tmdb/film/:id</code></td>
+                        <td>GET</td>
+                        <td>Detalji TMDB filma prema id &#40;prijava&#41;</td>
+                        <td>200 JSON film</td>
+                        <td>400 id nije broj; 403 bez sesije; 500 &#123;"greska":"greska na serveru"&#125;</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/tmdb/filmovi</code></td>
+                        <td>GET</td>
+                        <td>Pretraga TMDB filmova &#40;query stranica,trazi; prijava&#41;</td>
+                        <td>200 objekt rezultata pretrage</td>
+                        <td>400 neispravni podaci; 403 bez sesije; 500 &#123;"greska":"greska na serveru"&#125;</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/tmdb/nasumceFilm</code></td>
+                        <td>GET</td>
+                        <td>Nasumican/filtriran TMDB izbor &#40;opcionalno stranica,trazi; prijava&#41;</td>
+                        <td>200 JSON rezultati</td>
+                        <td>403 bez sesije; 500 &#123;"greska":"greska na serveru"&#125;</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/tmdb/animirani/najboljeOcijenjeni</code></td>
+                        <td>GET</td>
+                        <td>Najbolje ocijenjeni animirani filmovi &#40;prijava&#41;</td>
+                        <td>200 JSON lista</td>
+                        <td>403 bez sesije; 500 &#123;"greska":"greska na serveru"&#125;</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h3>Korisnici i prijava</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Putanja</th>
+                        <th>Metoda</th>
+                        <th>Opis</th>
+                        <th>Pozitivno</th>
+                        <th>Negativno</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>/api/korisnici</code></td>
+                        <td>GET</td>
+                        <td>Popis korisnika &#40;admin/moderator; prijava&#41;</td>
+                        <td>200 lista korisnika &#40;admin vidi sva polja bez lozinke&#41;</td>
+                        <td>403 bez prijave ili ovlasti; 500 &#123;"greska":"greska na serveru"&#125;</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/gost/korisnici</code></td>
+                        <td>POST</td>
+                        <td>Registracija novog korisnika s preferencijama</td>
+                        <td>200 poruka iz DAO</td>
+                        <td>400 korime prazno; 409 korime/email postoji; 500 &#123;"greska":"greska na serveru"&#125;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/korisnici/:korime</code></td>
+                        <td>GET</td>
+                        <td>Dohvat jednog korisnika &#40;prijava&#41;; lozinka se uklanja</td>
+                        <td>200 korisnik</td>
+                        <td>403 bez prijave; 404 &#123;"greska":"nepostojeci resurs"&#125;</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/gost/korisnici/:korime/prijava</code></td>
+                        <td>POST</td>
+                        <td>Prijava i otvaranje sesije</td>
+                        <td>200 korisnik bez lozinke, sesija postavljena</td>
+                        <td>400 nedostaje parametar; 403 krivi podaci ili racun blokiran</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/korisnici/:korime</code></td>
+                        <td>PUT</td>
+                        <td>Azuriranje korisnika &#40;prijava&#41;</td>
+                        <td>200 poruka azuriranja iz DAO</td>
+                        <td>400 neispravni podaci; 403 bez prijave</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/korisnici/:korime</code></td>
+                        <td>DELETE</td>
+                        <td>Brisanje korisnika &#40;prijava&#41;</td>
+                        <td>200 &#123;"ok":"obrisan"&#125;</td>
+                        <td>400 neispravni podaci; 403 bez prijave</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/korisnici/:korime/tip</code></td>
+                        <td>PUT</td>
+                        <td>Postavljanje tipa korisnika &#40;samo admin&#41;</td>
+                        <td>200 &#123;"uspjeh":true&#125;</td>
+                        <td>403 bez prijave/ovlasti; 400 pokusaj mijenjanja admina</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/korisnici/:korime/blokada</code></td>
+                        <td>PUT</td>
+                        <td>Postavljanje blokade racuna &#40;samo admin&#41;</td>
+                        <td>200 &#123;"uspjeh":true&#125;</td>
+                        <td>403 bez prijave/ovlasti</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/gost/preference</code></td>
+                        <td>GET</td>
+                        <td>Dohvat preferenci za registraciju</td>
+                        <td>200 lista preferenci</td>
+                        <td>500 &#123;"greska":"greska na serveru"&#125;</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h3>Kolekcije</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Putanja</th>
+                        <th>Metoda</th>
+                        <th>Opis</th>
+                        <th>Pozitivno</th>
+                        <th>Negativno</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>/api/gost/javneKolekcije</code></td>
+                        <td>GET</td>
+                        <td>Pregled javnih kolekcija</td>
+                        <td>200 lista kolekcija</td>
+                        <td>500 &#123;"greska":"greska na serveru"&#125;</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/kolekcije</code></td>
+                        <td>GET</td>
+                        <td>Sve kolekcije &#40;prijava&#41;</td>
+                        <td>200 lista kolekcija</td>
+                        <td>403 bez prijave; 500 &#123;"greska":"greska na serveru"&#125;</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/kolekcije/:id</code></td>
+                        <td>GET</td>
+                        <td>Dohvat kolekcije; admin/moderator ili clan kolekcije &#40;prijava&#41;</td>
+                        <td>200 kolekcija</td>
+                        <td>400 id nije broj; 403 zabranjen pristup; 404 nepostojeci resurs; 500 &#123;"greska":"greska
+                            na serveru"&#125;</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/kolekcije</code></td>
+                        <td>POST</td>
+                        <td>Kreiranje kolekcije &#40;prijava&#41;</td>
+                        <td>201 kreirana kolekcija ili id</td>
+                        <td>403 bez prijave; 500 &#123;"greska":"greska na serveru"&#125;</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/kolekcije/:id</code></td>
+                        <td>PUT</td>
+                        <td>Azuriranje kolekcije &#40;prijava&#41;</td>
+                        <td>200 &#123;"uspjeh":true&#125;</td>
+                        <td>404 nepostojeci resurs; 403 bez prijave; 500 &#123;"greska":"greska na serveru"&#125;</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/kolekcije/:id</code></td>
+                        <td>DELETE</td>
+                        <td>Brisanje kolekcije &#40;prijava&#41;</td>
+                        <td>200 &#123;"uspjeh":true&#125;</td>
+                        <td>404 nepostojeci resurs; 403 bez prijave; 500 &#123;"greska":"greska na serveru"&#125;</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/kolekcije/:id/filmovi</code></td>
+                        <td>POST</td>
+                        <td>Dodaje film u kolekciju &#40;prijava; body filmId&#41;</td>
+                        <td>200 &#123;"uspjeh":true,"poruka":&#125;</td>
+                        <td>400 neispravni podaci; 403 bez prijave; 500 &#123;"greska":"greska na serveru"&#125;</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/kolekcije/:id/filmovi/:filmId</code></td>
+                        <td>DELETE</td>
+                        <td>Uklanja film iz kolekcije &#40;prijava&#41;</td>
+                        <td>200 &#123;"uspjeh":true&#125;</td>
+                        <td>400 neispravni podaci; 404 nepostojeci resurs; 403 bez prijave; 500 &#123;"greska":"greska
+                            na
+                            serveru"&#125;</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/kolekcije/:id/korisnici</code></td>
+                        <td>POST</td>
+                        <td>Dodaje korisnika u kolekciju &#40;admin/moderator&#41;</td>
+                        <td>200 &#123;"uspjeh":true,"poruka":&#125;</td>
+                        <td>403 zabranjen pristup; 400 neispravni podaci; 500 &#123;"greska":"greska na serveru"&#125;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/kolekcije/:id/:korisnikId</code></td>
+                        <td>DELETE</td>
+                        <td>Uklanja korisnika iz kolekcije &#40;admin/moderator&#41;</td>
+                        <td>200 &#123;"uspjeh":true&#125;</td>
+                        <td>403 zabranjen pristup; 400 neispravni podaci; 404 nepostojeci resurs; 500
+                            &#123;"greska":"greska na serveru"&#125;</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h3>Filmovi i zanrovi</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Putanja</th>
+                        <th>Metoda</th>
+                        <th>Opis</th>
+                        <th>Pozitivno</th>
+                        <th>Negativno</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>/api/gost/javniFilmovi</code></td>
+                        <td>GET</td>
+                        <td>Javni filmovi, opcionalno limit</td>
+                        <td>200 lista filmova</td>
+                        <td>500 &#123;"greska":"greska na serveru"&#125;</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/filmovi</code></td>
+                        <td>GET</td>
+                        <td>Lista filmova s filterima samoJavni/javni i trazi &#40;prijava&#41;</td>
+                        <td>200 lista filmova</td>
+                        <td>403 bez prijave; 500 &#123;"greska":"greska na serveru"&#125;</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/filmovi/pretraga</code></td>
+                        <td>GET</td>
+                        <td>Trazi film po nazivu i datumu &#40;query naziv i datum/datumPremijere; prijava&#41;</td>
+                        <td>200 film</td>
+                        <td>400 nedostaju parametri; 404 nepostojeci resurs; 403 bez prijave; 500 &#123;"greska":"greska
+                            na serveru"&#125;</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/filmovi/:id</code></td>
+                        <td>GET</td>
+                        <td>Dohvat filma &#40;prijava&#41;</td>
+                        <td>200 film</td>
+                        <td>400 id nije broj; 404 nepostojeci resurs; 403 bez prijave; 500 &#123;"greska":"greska na
+                            serveru"&#125;</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/filmovi</code></td>
+                        <td>POST</td>
+                        <td>Kreiranje filma; obavezno naziv, opis, datumPremijere &#40;prijava&#41;</td>
+                        <td>201 novi film ili id</td>
+                        <td>400 neispravni podaci; 403 bez prijave; 500 &#123;"greska":"greska na serveru"&#125;</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/filmovi/:id</code></td>
+                        <td>PUT</td>
+                        <td>Azuriranje filma &#40;prijava&#41;</td>
+                        <td>200 &#123;"uspjeh":true&#125;</td>
+                        <td>400 id nije broj; 404 nepostojeci resurs; 403 bez prijave; 500 &#123;"greska":"greska na
+                            serveru"&#125;</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/filmovi/:id</code></td>
+                        <td>DELETE</td>
+                        <td>Brisanje filma &#40;prijava&#41;</td>
+                        <td>200 &#123;"uspjeh":true&#125;</td>
+                        <td>400 id nije broj; 404 nepostojeci resurs; 403 bez prijave; 500 &#123;"greska":"greska na
+                            serveru"&#125;</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/filmovi/:id/kolekcije</code></td>
+                        <td>POST</td>
+                        <td>Dodaje film u kolekciju &#40;prijava; body kolekcijaId&#41;</td>
+                        <td>201 kada doda, 200 kada je vec u kolekciji; tijelo &#123;"uspjeh":true,"poruka":&#125;</td>
+                        <td>400 neispravni podaci; 403 bez prijave; 500 &#123;"greska":"greska na serveru"&#125;</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/filmovi/:id/kolekcije/:kolekcijaId</code></td>
+                        <td>DELETE</td>
+                        <td>Uklanja film iz kolekcije &#40;prijava; kolekcijaId u putanji&#41;</td>
+                        <td>200 &#123;"uspjeh":true&#125;</td>
+                        <td>400 neispravni podaci; 404 nepostojeci resurs; 403 bez prijave; 500 &#123;"greska":"greska
+                            na
+                            serveru"&#125;</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/zanrovi</code></td>
+                        <td>GET</td>
+                        <td>Dohvat zanrova iz lokalne baze &#40;prijava&#41;</td>
+                        <td>200 lista zanrova</td>
+                        <td>403 bez prijave; 500 &#123;"greska":"greska na serveru"&#125;</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+    <hr>
+    <div class="napravljeno">
+        <h2>Napravljene funkcionalnosti Web aplikacije</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Uloga</th>
+                    <th>Funkcionalnost</th>
+                    <th>Napravljeno</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Gost</td>
+                    <td>Početna</td>
+                    <td class="stupac">
+                        <p>a&#41;&nbsp; Vidi pregled javnih kolekcija sa istaknutom slikom.</p>
+                        <p>b&#41;&nbsp; Može vidjeti javne multimedijske sadržaj u kolekciji.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gost</td>
+                    <td>Dokumentacija</td>
+                    <td class="stupac">
+                        <p>a&#41;&nbsp; Prikaz stranice dokumentacije.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gost</td>
+                    <td>Prijava, Odjava</td>
+                    <td class="stupac">
+                        <p>a&#41;&nbsp; Korisnik se može prijaviti ili odjaviti. Prilikom prijave kreira se sesija dok
+                            se
+                            kod odjave ista briše.</p>
+                        <p>b&#41;&nbsp; Ako tri puta unese pogrešna lozinka račun se blokira i administrator ga mora
+                            odblokirati prije daljneg korištenja.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gost</td>
+                    <td>Registracija</td>
+                    <td class="stupac">
+                        <p>a&#41;&nbsp; Gost se može samostalno registrirati kao novi korisnik. Kod dodavanja mora
+                            obavezno unjeti email, korisničko ime i lozinku. Opcionalno može unijeti ime, prezime i
+                            još barem 3 druga podatka po vlastitom odabiru. Lozinka se u bazu NE smije spremiti u
+                            čitljivom obliku i treba koristiti sol kod spremanja.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Korisnik</td>
+                    <td>Kolekcije</td>
+                    <td class="stupac">
+                        <p>a&#41;&nbsp; Vidi pregled svojih kolekcija sa istaknutom slikom.&#40;Na stranici svojeg
+                            profila&#41;
+                        </p>
+                        <p>b&#41;&nbsp; Može pregledati kolekciju i vidjeti multimedijske sadržaje odabrane kolekcije.
+                        </p>
+                        <p>c&#41;&nbsp; Može promjeniti kolekciju u javnu/privatnu.</p>
+                        <p>d&#41;&nbsp; Može dodavati nove multimedijske sadržaje u kolekciju i brisati postojeće. Svaki
+                            sadržaj može biti javan ili privatan.</p>
+                        <p>e&#41;&nbsp; Može vidjeti metapodatke sadržaja &#40;naziv, autor, datum, veličina, tip,
+                            …&#41;
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Korisnik</td>
+                    <td>Sadržaj</td>
+                    <td class="stupac">
+                        <p>a&#41;&nbsp; Može pretraživati multimedijske sadržaje dohvaćene iz TMDB servisa. Upisom
+                            naziva
+                            pretražuju se zapisi TMDB servisa.</p>
+                        <p>b&#41;&nbsp; Odabirom zapisa prikazuju se multimedijski sadržaji &#40;slika, video&#41;.</p>
+                        <p>c&#41;&nbsp; Mogu se zapisi dodati u kolekcije za kojima korisnik može upravljati, slika i
+                            video koji dolaze iz TMDB servisa se ne preuzimaju već se samo sprema putanja u bazu
+                            koja se koristi u prikazu.</p>
+                        <p>d&#41;&nbsp; Može postaviti &#40;eng. upload&#41; novi vlasiti multimedijski sadržaj. Kod
+                            toga
+                            mora
+                            ručno dodati metapodatke ili ih učitati automatski ako je to moguće. </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Moderator</td>
+                    <td>Kolekcije</td>
+                    <td class="stupac">
+                        <p>a&#41;&nbsp; Moderator kreira kolekcije.</p>
+                        <p>b&#41;&nbsp; Dodjeljuje korisnike u kolekciju koji mogu njome upravljati. Jedan korisnik može
+                            imati više kolekcija, a jedna kolekcija može imati više korisnika koji njome upravljaju.
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Admin</td>
+                    <td>Korisnici</td>
+                    <td class="stupac">
+                        <p>a&#41;&nbsp; Vidi popis i podatke svih korisnika.</p>
+                        <p>b&#41;&nbsp; Može blokirati/odblokirati nekog korisnika. Ne može blokirati sam sebe.
+                            Blokirani
+                            korisnici su posebno označeni.</p>
+                        <p>c&#41;&nbsp; Može promjeniti ulogu nekog običnog korisnika u moderatora i obratno.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <h2>Nije napravljeno</h2>
+        <ol>
+            <li>Kod unos novih sadržaja&#40;kolekcija i videa&#41; nije moguće unijeti novu sliku. Odnosno putanja do
+                slike
+                se sprema ali sama slika ne.</li>
+            <li>Sadržaji u bazi se ne mogu do kraja izbrisati</li>
+            <li>Korisnika se može dodati u kolekciju, ali taj isti korisnik može dodavati filmove u sve
+                kolekcije&#40;čak i one u kojim nije dodan&#41;</li>
+        </ol>
+    </div>
+</main>

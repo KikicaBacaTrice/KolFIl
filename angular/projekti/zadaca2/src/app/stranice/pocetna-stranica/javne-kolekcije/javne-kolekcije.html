@@ -1,0 +1,37 @@
+<div class="kontejner">
+    <div class="uvodni-tekst">
+        <img src="/slike/hero-sekcija-ilustracija.png" alt="" class="pozadinska-ilustracija">
+        <div class="tekst-kontejner">
+            <h1 class="text-h1">Svijet animacija na jednom mjestu</h1>
+            <p class="text-body">Otkrij najpopularnije i najbolje animirane filmove - od klasika do najnovijih hitova.
+                Svipodaci automatski dohvaćeni s TMDB-a uvijek svježi i ažurirani.</p>
+        </div>
+    </div>
+
+    <div class="carousel" *ngIf="imaKolekcija(); else nemaKolekcija">
+        <div class="carousel-viewport">
+            <div class="carousel-card dir-next" [class.is-out]="animacija() === 'out'"
+                [class.is-in]="animacija() === 'in'">
+                <app-kartica-sadrzaj [kolekcija]="trenutnaKolekcija()"></app-kartica-sadrzaj>
+            </div>
+        </div>
+
+        <div class="carousel-tocke" *ngIf="kolekcije().length > 1">
+            <span class="carousel-tocka" *ngFor="let a of kolekcije(); let i = index"
+                [class.aktivna-kolekcija]="i === indeks()"></span>
+        </div>
+
+        <div class="carousel-btn-kontejner">
+            <button class="carousel-btn prev" type="button" (click)="prethodna()">
+                &lt;
+            </button>
+            <button class="carousel-btn next" type="button" (click)="sljedeca()">
+                &gt;
+            </button>
+        </div>
+    </div>
+
+    <ng-template #nemaKolekcija>
+        <p class="text-body">{{ greska() }}</p>
+    </ng-template>
+</div>

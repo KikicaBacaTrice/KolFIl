@@ -1,0 +1,137 @@
+.admin-wrapper {
+  max-width: 1500px;
+  margin: 2rem auto 3rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.makni-od-navigacije {
+  margin-top: 8.5rem !important;
+}
+
+.admin-zaglavlje {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+#admin-poruka {
+  margin: 0;
+  min-height: 2.5rem;
+  font-weight: 600;
+}
+
+#admin-poruka.uspjeh {
+  color: var(--boja-zuta);
+}
+
+#admin-poruka.greska {
+  color: var(--boja-crvena);
+}
+
+.admin-kartica {
+  padding: 1.25rem;
+  border-radius: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 18px 60px var(--sjena-kartica);
+}
+
+#tablica-korisnici {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.05);
+  th,
+  td {
+    padding: 1rem 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    vertical-align: top;
+  }
+
+  thead {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  tbody {
+    tr.blokiran-korisnik {
+      background: rgba(215, 38, 56, 0.1);
+      border-left: 4px solid var(--boja-crvena);
+
+      &:hover {
+        background: rgba(215, 38, 56, 0.2);
+      }
+    }
+
+    tr:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+  }
+
+  select,
+  button {
+    padding: 0.5rem 0.65rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--boja-tekst);
+    cursor: pointer;
+  }
+
+  select {
+    background: #fff;
+    color: #000;
+
+    option {
+      background: #fff;
+      color: #000;
+    }
+  }
+
+  button {
+    background: linear-gradient(
+      135deg,
+      rgba(249, 160, 27, 0.35),
+      rgba(215, 38, 56, 0.35)
+    );
+    border-color: var(--boja-zuta);
+  }
+
+  .gumb-opasno {
+    background: linear-gradient(
+      135deg,
+      rgba(215, 38, 56, 0.7),
+      rgba(215, 38, 56, 0.5)
+    );
+    border-color: var(--boja-crvena);
+  }
+}
+
+.kolekcije-znacke {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.akcije {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  .flex {
+    align-items: center;
+  }
+}
+
+.korime-s-znackom {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.blokiran-znacka {
+  border-color: var(--boja-crvena);
+  color: var(--boja-crvena);
+  background: rgba(215, 38, 56, 0.2);
+}

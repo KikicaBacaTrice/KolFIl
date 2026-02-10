@@ -1,0 +1,181 @@
+:root {
+  --boja-pozadina-tamna: #0c0f1f;
+  --boja-tekst: #ffffff;
+  --boja-tekst-sekundarna: rgba(255, 255, 255, 0.85);
+  --boja-zuta: #f9a01b;
+  --boja-narandasta: #e56020;
+  --boja-crvena: #d72638;
+  --boja-znacka: rgba(255, 255, 255, 0.12);
+  --sjena-kartica: rgba(0, 0, 0, 0.35);
+  --sjena-kartica-hover: rgba(0, 0, 0, 0.45);
+
+  --ff-body: "Titillium Web", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: var(--ff-body);
+  background-color: var(--boja-pozadina-tamna);
+  color: var(--boja-tekst);
+}
+
+app-root,
+[class^="app-"] {
+  width: 100%;
+}
+
+a {
+  color: var(--boja-tekst);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.grid {
+  display: grid;
+}
+
+.gap-xs {
+  gap: 0.35rem;
+}
+.gap-sm {
+  gap: 0.5rem;
+}
+.gap-md {
+  gap: 0.75rem;
+}
+.gap-lg {
+  gap: 1rem;
+}
+
+.znacka {
+  padding: 0.35rem 0.75rem;
+  border-radius: 12px;
+  background: var(--boja-znacka);
+  color: var(--boja-tekst);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.shadow-kartica {
+  box-shadow: 0 20px 50px var(--sjena-kartica);
+}
+
+.text-h1 {
+  font-size: 2.4rem;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+}
+
+.text-body {
+  color: var(--boja-tekst-sekundarna);
+  line-height: 1.5;
+}
+
+.text-muted {
+  color: var(--boja-tekst-sekundarna);
+}
+
+.btn {
+  cursor: pointer;
+  padding: 0.6rem 1.35rem;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  color: var(--boja-tekst);
+}
+
+.btn-grad {
+  background-image: linear-gradient(
+    to right,
+    var(--boja-zuta) 0%,
+    var(--boja-crvena) 51%,
+    var(--boja-zuta) 100%
+  );
+  background-size: 200% auto;
+  box-shadow: 0 0 18px rgba(240, 141, 11, 0.5);
+  transition: background-position 0.5s ease, transform 0.3s ease;
+
+  &:hover {
+    background-position: right center;
+    transform: translateY(-1px);
+  }
+}
+
+#istrazi-filmove,
+#najbolje-ocjenjeni,
+#istrazi-filmove {
+  overflow-x: hidden;
+}
+
+#filter {
+  width: 100%;
+  max-width: 420px;
+  padding: 1rem 1.25rem;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--boja-tekst);
+  transition: border-color 0.2s ease;
+
+  &:focus {
+    outline: none;
+    border-color: rgba(249, 160, 27, 0.65);
+  }
+}
+#stranicenje {
+  margin-top: 1rem;
+
+  button {
+    min-width: 40px;
+    padding: 0.5rem 0.1rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.08);
+    color: var(--boja-tekst);
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 200ms ease, border-color 200ms ease;
+
+    &:hover {
+      transform: translateY(-1px);
+      border-color: rgba(249, 160, 27, 0.5);
+    }
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
+
+.makni-od-navigacije {
+  margin-top: 8rem !important;
+}

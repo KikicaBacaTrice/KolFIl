@@ -1,0 +1,39 @@
+:host {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.znacka {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--boja-tekst);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+label:hover .znacka {
+  border-color: var(--boja-zuta);
+  transform: translateY(-1px);
+}
+
+input[type="checkbox"]:checked + .znacka {
+  background: linear-gradient(
+    135deg,
+    rgba(249, 160, 27, 0.35),
+    rgba(215, 38, 56, 0.35)
+  );
+  border-color: var(--boja-zuta);
+}

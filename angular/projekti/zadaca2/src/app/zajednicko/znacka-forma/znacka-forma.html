@@ -1,0 +1,10 @@
+<ng-container *ngIf="preference.length; else preferenceFallback">
+    <label *ngFor="let pref of preference" [for]="'pref-' + pref.id">
+        <input type="checkbox" [id]="'pref-' + pref.id" [name]="'pref-' + pref.id"
+            [(ngModel)]="odabranePreference[pref.id]" [ngModelOptions]="{ standalone: true }" />
+        <span class="znacka">{{ pref.naziv }}</span>
+    </label>
+</ng-container>
+<ng-template #preferenceFallback>
+    <span class="text-body">{{ poruka }}</span>
+</ng-template>

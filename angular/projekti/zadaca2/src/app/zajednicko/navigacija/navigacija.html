@@ -1,0 +1,26 @@
+<nav class="top-nav">
+    <div class="nav-inner">
+        <a class="nav-logo" routerLink="/">KolFil</a>
+        <div class="nav-akcije">
+            <div class="nav-link nav-link-gost" *ngIf="!jePrijavljen()">
+                <a class="nav-link" routerLink="/dokumentacija">Dokumentacija</a>
+                <a class="nav-btn nav-btn-ghost" routerLink="/prijava">Prijava</a>
+                <a class="nav-btn nav-btn-primarni" routerLink="/registracija">Registracija</a>
+            </div>
+            <div class="nav-link nav-link-prijavljen" *ngIf="jePrijavljen()">
+                <a class="nav-link" routerLink="/dokumentacija">Dokumentacija</a>
+                <a class="nav-link" routerLink="/dodajFilm">Dodaj film</a>
+                <a class="nav-link" routerLink="/sviJavniFilmovi">Javni filmovi pretraživanje</a>
+                <a class="nav-link" routerLink="/sviJavniFilmoviFiltriranje">Javni filmovi filter</a>
+                <a class="nav-link" routerLink="/dodajKolekciju" *ngIf="jeAdminIliModerator()">
+                    Dodaj kolekciju
+                </a>
+                <a class="nav-link" routerLink="/upravljanjeKorisnicima" *ngIf="jeAdminIliModerator()">
+                    Upravljanje korisnicima
+                </a>
+                <a class="nav-link nav-link-korime" routerLink="/profil">{{ korime() }}</a>
+                <a class="nav-link nav-link-odjava" href="/" (click)="odjava($event)">Odjava</a>
+            </div>
+        </div>
+    </div>
+</nav>

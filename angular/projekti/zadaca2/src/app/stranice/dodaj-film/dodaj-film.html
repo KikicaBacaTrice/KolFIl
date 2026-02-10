@@ -1,0 +1,81 @@
+<main class="makni-od-navigacije">
+    <a class="forme-logo" routerLink="/">KolFil</a>
+    <div id="poruka" [style.display]="poruka() ? 'block' : 'none'" [innerHTML]="poruka()"></div>
+    <form id="dodaj-film-forma" (ngSubmit)="spremiFilm()">
+        <h3>Dodaj novi film</h3>
+        <div class="polja-za-dva">
+            <div class="polje">
+                <label for="naziv">Naziv *</label>
+                <input type="text" name="naziv" id="naziv" required [(ngModel)]="naziv" />
+            </div>
+            <div class="polje">
+                <label for="datumPremijere">Datum premijere *</label>
+                <input type="date" name="datumPremijere" id="datumPremijere" required [(ngModel)]="datumPremijere" />
+            </div>
+        </div>
+        <label for="opis">Opis *</label>
+        <textarea name="opis" id="opis" rows="3" placeholder="Kratak sažetak filma." required
+            [(ngModel)]="opis"></textarea>
+        <div class="polja-za-dva">
+            <div class="polje">
+                <label for="popularnost">Popularnost</label>
+                <input type="number" name="popularnost" id="popularnost" placeholder="npr. 125"
+                    [(ngModel)]="popularnost" />
+            </div>
+            <div class="polje">
+                <label for="prosjecnaOcjena">Prosjecna ocjena (0-10)</label>
+                <input type="number" min="0" max="10" name="prosjecnaOcjena" id="prosjecnaOcjena" placeholder="npr. 7"
+                    [(ngModel)]="prosjecnaOcjena" />
+            </div>
+        </div>
+        <div class="polja-za-dva">
+            <div class="polje">
+                <label for="brojGlasova">Broj glasova</label>
+                <input type="number" name="brojGlasova" id="brojGlasova" placeholder="npr. 2400"
+                    [(ngModel)]="brojGlasova" />
+            </div>
+            <div class="polje checkbox-polje">
+                <input type="checkbox" name="filmJavan" id="filmJavan" checked [(ngModel)]="filmJavan" />
+                <label for="filmJavan">Film je javan</label>
+            </div>
+        </div>
+        <div class="polja-za-dva">
+            <div class="polje">
+                <label for="autor">Autor</label>
+                <input type="text" name="autor" id="autor" placeholder="Ime autora unosa (opcionalno)"
+                    [(ngModel)]="autor" />
+            </div>
+            <div class="polje">
+                <label for="video">Video</label>
+                <input type="text" name="video" id="video" placeholder="URL trailera ili video zapisa"
+                    [(ngModel)]="video" />
+            </div>
+        </div>
+        <div class="polja-za-dva">
+            <div class="polje">
+                <label for="posterSlika">Poster slika</label>
+                <input type="file" name="posterSlika" id="posterSlika" />
+            </div>
+            <div class="polje">
+                <label for="bannerSlika">Banner slika</label>
+                <input type="file" name="bannerSlika" id="bannerSlika" />
+            </div>
+        </div>
+        <fieldset>
+            <legend>Zanrovi</legend>
+            <div id="zanrovi" class="znacke-odabir">
+                <ng-container *ngIf="zanrovi().length; else zanroviFallback">
+                    <label *ngFor="let zanr of zanrovi()" [for]="'zanr-' + zanr.id">
+                        <input type="checkbox" [id]="'zanr-' + zanr.id" [name]="'zanr-' + zanr.id"
+                            [(ngModel)]="odabraniZanrovi[zanr.id]" [ngModelOptions]="{ standalone: true }" />
+                        <span class="znacka">{{ zanr.naziv }}</span>
+                    </label>
+                </ng-container>
+                <ng-template #zanroviFallback>
+                    <span class="text-body">{{ zanroviPoruka() }}</span>
+                </ng-template>
+            </div>
+        </fieldset>
+        <input type="submit" value="Spremi film" />
+    </form>
+</main>

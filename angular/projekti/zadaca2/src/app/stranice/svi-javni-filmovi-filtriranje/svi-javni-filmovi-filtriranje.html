@@ -1,0 +1,54 @@
+<main>
+    <section class="opis-filter">
+        <div class="hero-tekst">
+            <p class="znacka">javni filmovi</p>
+            <h1>Filtriranje i sortiranje javnih filmova</h1>
+            <p class="opis">Filtriranje po ocjeni i sortiraj po datumu premijere i broju glasova</p>
+        </div>
+        <form class="filter-kartica" (ngSubmit)="onPrimijeni()">
+            <div class="polja-red">
+                <label class="polje">
+                    <span>Ocjena od</span>
+                    <input type="number" min="0" max="10" step="0.5" name="ocjenaDolje" placeholder="min. 0"
+                        [(ngModel)]="ocjenaDolje">
+                </label>
+                <label class="polje">
+                    <span>Ocjena do</span>
+                    <input type="number" min="0" max="10" step="0.5" name="ocjenaGore" placeholder="max. 10"
+                        [(ngModel)]="ocjenaGore">
+                </label>
+            </div>
+            <div class="polja-red">
+                <label class="polje">
+                    <span>Datum premijere</span>
+                    <select name="sortirajPoDatumuPremijere" [(ngModel)]="sortirajPoDatumuPremijere">
+                        <option value="">Bez sortiranja</option>
+                        <option value="asc">Najstariji prvo</option>
+                        <option value="desc">Najnoviji prvo</option>
+                    </select>
+                </label>
+                <label class="polje">
+                    <span>Broj glasova</span>
+                    <select name="sortirajPoBrojuGlasova" [(ngModel)]="sortirajPoBrojuGlasova">
+                        <option value="">Bez sortiranja</option>
+                        <option value="asc">Najmanje glasova</option>
+                        <option value="desc">Najviše glasova</option>
+                    </select>
+                </label>
+            </div>
+            <div class="akcije">
+                <button class="btn sekundarni" (click)="onReset()">Resetiraj</button>
+                <button type="submit" class="btn primarni" [disabled]="ucitavanje()">Primijeni</button>
+            </div>
+        </form>
+    </section>
+    <section class="rezultati">
+        <div class="status" *ngIf="ucitavanje()">Učivatanje...</div>
+        <div class="status" *ngIf="!ucitavanje() && !imaAktivnePostavke()">Odaberite barem jedan filter ili sortiranje.
+        </div>
+        <div class="greska" *ngIf="!ucitavanje() && imaAktivnePostavke() && greska()">{{greska()}}</div>
+        <div class="svi-javni-filmovi-kontejner" *ngIf="imaAktivnePostavke()">
+            <app-kartica-film *ngFor="let film of filmovi()" [film]="film"></app-kartica-film>
+        </div>
+    </section>
+</main>

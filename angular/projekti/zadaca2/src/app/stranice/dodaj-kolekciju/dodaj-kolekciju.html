@@ -1,0 +1,18 @@
+<main class="makni-od-navigacije">
+    <a class="forme-logo" routerLink="/">KolFil</a>
+    <div id="poruka" [style.display]="poruka() ? 'block' : 'none'" [innerHTML]="poruka()"></div>
+    <form id="dodaj-kolekciju-forma" (ngSubmit)="spremiKolekciju()">
+        <h3>Kreiraj kolekciju</h3>
+        <label for="naziv">Naziv *</label>
+        <input type="text" name="naziv" id="naziv" required [(ngModel)]="naziv" />
+        <label for="opis">Opis</label>
+        <textarea name="opis" id="opis" rows="3" placeholder="Opis kolekcije" [(ngModel)]="opis"></textarea>
+        <label for="slikaKolekcije">Slika kolekcije</label>
+        <input type="file" name="slikaKolekcije" id="slikaKolekcije" />
+        <div class="checkbox-polje">
+            <input type="checkbox" name="kolekcijaJavna" id="kolekcijaJavna" [(ngModel)]="kolekcijaJavna" />
+            <label for="kolekcijaJavna">Kolekcija je javna</label>
+        </div>
+        <input type="submit" value="Spremi kolekciju" />
+    </form>
+</main>

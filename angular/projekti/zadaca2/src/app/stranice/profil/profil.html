@@ -1,0 +1,59 @@
+<main class="profil-wrapper makni-od-navigacije">
+    <section class="profil-detalji shadow-kartica">
+        <div class="profil-zaglavlje">
+            <div>
+                <p class="znacka">Pregled profila</p>
+                <h1 class="text-h1">Profil</h1>
+                <p class="text-body">Vasi osnovni podaci i preferencije.</p>
+            </div>
+            <p class="profil-poruka">{{ poruka() }}</p>
+        </div>
+        <div class="profil-grid">
+            <div class="profil-stavka">
+                <p class="profil-oznaka">Korime</p>
+                <p class="profil-vrijednost">{{ korisnikKorime() }}</p>
+            </div>
+            <div class="profil-stavka">
+                <p class="profil-oznaka">Ime i prezime</p>
+                <p class="profil-vrijednost">{{ korisnikImePrezime() }}</p>
+            </div>
+            <div class="profil-stavka">
+                <p class="profil-oznaka">Email</p>
+                <p class="profil-vrijednost">{{ korisnikEmail() }}</p>
+            </div>
+            <div class="profil-stavka">
+                <p class="profil-oznaka">Adresa</p>
+                <p class="profil-vrijednost">{{ korisnikAdresa() }}</p>
+            </div>
+            <div class="profil-stavka profil-opis">
+                <p class="profil-oznaka">Opis</p>
+                <p class="profil-vrijednost">{{ korisnikOpis() }}</p>
+            </div>
+        </div>
+        <div class="profil-preference-blok">
+            <div class="profil-preference-zaglavlje">
+                <h2>Preference</h2>
+            </div>
+            <div *ngIf="preference().length; else bezPreferencija" class="profil-preference">
+                <span class="znacka" *ngFor="let p of preference()">{{ p.naziv }}</span>
+            </div>
+            <ng-template #bezPreferencija>
+                <p class="text-body">Nema spremljenih preferencija.</p>
+            </ng-template>
+        </div>
+    </section>
+    <section class="profil-kolekcije">
+        <div class="profil-kolekcije-zaglavlje">
+            <div>
+                <p class="znacka">Kolekcije</p>
+                <h2 class="text-h1">Kolekcije u kojima sudjelujete</h2>
+            </div>
+        </div>
+        <div *ngIf="kolekcije().length; else bezKolekcija" class="profil-kolekcije-kontejner flex flex-wrap gap-lg">
+            <app-kartica-sadrzaj *ngFor="let kolekcija of kolekcije()" [kolekcija]="kolekcija"></app-kartica-sadrzaj>
+        </div>
+        <ng-template #bezKolekcija>
+            <p class="text-body">Još niste dodani u nijednu kolekciju.</p>
+        </ng-template>
+    </section>
+</main>

@@ -1,0 +1,43 @@
+<main>
+    <a class="forme-logo makni-od-navigacije" routerLink="/">KolFil</a>
+    <div id="poruka" [style.display]="poruka() ? 'block' : 'none'" [innerHTML]="poruka()"></div>
+    <form id="registracija-forma" (ngSubmit)="dodajKorisnika()">
+        <h3>Kreiraj profil</h3>
+        <div class="polja-za-dva">
+            <div class="polje">
+                <label for="ime">Ime</label>
+                <input type="text" name="ime" id="ime" [(ngModel)]="ime" />
+            </div>
+            <div class="polje">
+                <label for="prezime">Prezime</label>
+                <input type="text" name="prezime" id="prezime" [(ngModel)]="prezime" />
+            </div>
+        </div>
+        <label for="adresa">Adresa</label>
+        <input type="text" name="adresa" id="adresa" [(ngModel)]="adresa" />
+        <label for="opis">Recite nam nešto o sebi:</label>
+        <textarea name="opis" id="opis" rows="3" placeholder="Omiljeni filmovi, žanrovi, navike gledanja..."
+            [(ngModel)]="opis"></textarea>
+        <div class="polja-za-dva">
+            <div class="polje">
+                <label for="korime">Korisničko ime</label>
+                <input type="text" name="korime" id="korime" [(ngModel)]="korime" />
+            </div>
+            <div class="polje">
+                <label for="lozinka">Lozinka</label>
+                <input type="password" name="lozinka" id="lozinka" [(ngModel)]="lozinka" />
+            </div>
+        </div>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" [(ngModel)]="email" />
+        <fieldset>
+            <legend>Preference</legend>
+            <div id="preference">
+                <app-znacka-forma [preference]="preference()" [poruka]="preferencePoruka()"
+                    [odabranePreference]="odabranePreference"></app-znacka-forma>
+            </div>
+        </fieldset>
+        <a routerLink="/prijava">Imate korisnički račun?</a>
+        <input type="submit" value="Registriraj" />
+    </form>
+</main>

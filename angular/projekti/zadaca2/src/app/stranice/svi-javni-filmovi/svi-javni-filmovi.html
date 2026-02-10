@@ -1,0 +1,26 @@
+<main class="makni-od-navigacije">
+    <section class="opis-filter">
+        <div class="hero-tekst">
+            <p class="znacka">javni filmovi</p>
+            <h1>Svi javni filmovi</h1>
+            <p class="opis">Pretraži javni sadržaj prema nazivu</p>
+        </div>
+        <form class="filter-kartica" (ngSubmit)="onPrimijeni()">
+            <label class="polje">
+                <span>Traži:</span>
+                <input type="search" placeholder="Upišite naziv filma (barem 3 slova)" name="trazi" [(ngModel)]="trazi">
+            </label>
+            <div class="akcije">
+                <button type="button" class="btn sekundarni" (click)="onReset()">Resetiraj</button>
+                <button type="submit" class="btn primarni" [disabled]="ucitavanje()">Primijeni</button>
+            </div>
+        </form>
+    </section>
+    <section class="rezultati">
+        <div class="status" *ngIf="ucitavanje()">Učitavanje...</div>
+        <div class="greska" *ngIf="!ucitavanje() && greska()">{{greska()}}</div>
+        <div class="svi-javni-filmovi-kontejner">
+            <app-kartica-film *ngFor="let film of filmovi()" [film]="film"></app-kartica-film>
+        </div>
+    </section>
+</main>

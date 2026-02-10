@@ -1,0 +1,70 @@
+<main class="film-detalji makni-od-navigacije">
+    <p class="text-body poruka" *ngIf="poruka()">{{ poruka() }}</p>
+
+    <section class="film-sadrzaj" *ngIf="film() as odabrani">
+        <img class="banner" [src]="bannerSrc(odabrani)" [alt]="'Banner ' + nazivFilma(odabrani)">
+        <img class="poster" [src]="posterUrl(odabrani)" [alt]="'Poster ' + nazivFilma(odabrani)">
+        <h1 class="text-h1">{{ nazivFilma(odabrani) }}</h1>
+        <p class="text-body film-opis">{{ opisFilma(odabrani) }}</p>
+        <p class="text-body">
+            Datum premijere: {{ datumPremijere(odabrani) || 'Nije poznato' }}
+        </p>
+        <p class="text-body" *ngIf="ocjenaFilma(odabrani) !== null">
+            Ocjena: {{ ocjenaFilma(odabrani) }}
+        </p>
+        <p class="text-body" *ngIf="popularnostFilma(odabrani) !== null">
+            Popularnosti: {{ popularnostFilma(odabrani) }}
+        </p>
+        <p class="text-body" *ngIf="glasoviFilma(odabrani) !== null">
+            Glasovi: {{ glasoviFilma(odabrani) }}
+        </p>
+        <div class="flex gap-sm" style="align-items:center;">
+            <span class="znacka">Javno: {{ filmJavanTekst(odabrani) }}</span>
+            <button class="btn btn-grad" type="button" *ngIf="mozePromijenitiVidljivost()" (click)="toggleVidljivost()">
+                {{ oznakaVidljivosti(odabrani) }}
+            </button>
+        </div>
+        <p class="text-body">Autor: {{ autorFilma(odabrani) }}</p>
+        <p class="text-body">
+            Video:
+            <a *ngIf="videoUrl(odabrani)" [href]="videoUrl(odabrani)" target="_blank">
+                Otvori
+            </a>
+            <span *ngIf="!videoUrl(odabrani)">Video nije naveden</span>
+        </p>
+        <div class="zanorvi flex flex-wrap gap-sm" *ngIf="zanroviNazivi(odabrani).length">
+            <span class="znacka" *ngFor="let zanr of zanroviNazivi(odabrani)">
+                {{ zanr }}
+            </span>
+        </div>
+        <div class="kolekcija">
+            <h3>Film je u ovim kolekcijama</h3>
+            <div class="flex flex-wrap gap-md text-body kolekacije-kontejner"
+                *ngIf="kolekcijeFilma(odabrani).length; else nemaKolekcija">
+                <app-kartica-sadrzaj *ngFor="let k of kolekcijeKartice(odabrani)" [kolekcija]="k"></app-kartica-sadrzaj>
+            </div>
+            <ng-template #nemaKolekcija>
+                <p class="text-body">Film nije u niti jednoj kolekciji.</p>
+            </ng-template>
+        </div>
+        <section class="dodaj-film-u-kolekciju">
+            <h2>Dodaj film u kolekciju</h2>
+            <div class="dodaj-forma" *ngIf="kolekcije().length; else nemaDostupnih">
+                <select (change)="odaberiKolekciju($event)">
+                    <option *ngFor="let k of kolekcije()" [value]="k.id">
+                        {{ k.naziv || ('Kolekcija ' + k.id) }}
+                    </option>
+                </select>
+                <button class="btn btn-grad" type="button" (click)="dodajUKolekciju()" [disabled]="spremanje()">
+                    {{ lokalniFilmId() ? 'Dodaj u kolekciju' : 'Spremi film i dodaj' }}
+                </button>
+            </div>
+            <ng-template #nemaDostupnih>
+                <p class="text-body">Nema dostupnih kolekcija ili je potrebna prijava.</p>
+            </ng-template>
+            <p class="text-body status" *ngIf="statusDodavanja()">
+                {{ statusDodavanja() }}
+            </p>
+        </section>
+    </section>
+</main>
