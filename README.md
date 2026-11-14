@@ -183,9 +183,6 @@ npm start
 Angular razvojni poslužitelj dostupan je na **http://localhost:4200**. REST servis treba ostati pokrenut na portu `12222`, prema adresi iz `config.json`.
 
 ## Dokumentacija
-
-- [Zadatak 1 - Upravljanje multimedijskim kolekcijama](dokumentacija/RWA%20-%20Zada%C4%87a%201%20-%20V1.1.pdf)
-- [Zadatak 2 - Angular klijent i nadogradnja aplikacije](dokumentacija/RWA%20-%20Zada%C4%87a%202%20-%20V1.0.pdf)
 - [ERA model baze podataka](angular/projekti/zadaca2/public/slike/ERA-model-Nikola%20Kihas.png)
 
 Stranica `/dokumentacija` sadrži pregled implementiranih REST ruta, funkcionalnosti i ograničenja rješenja.
