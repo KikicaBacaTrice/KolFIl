@@ -2,6 +2,40 @@
 
 Web aplikacija za istraživanje animiranih filmova i spremanje omiljenih naslova u kolekcije. Podaci o filmovima dohvaćaju se s TMDB API-ja, a korisnici mogu pregledavati detalje filmova, upravljati sadržajem kolekcija i ručno dodavati vlastite filmske zapise.
 
+## Prikaz rada aplikacije
+
+### Početna stranica
+
+![Početna stranica aplikacije KolFil](dokumentacija/gifovi/pocetna-stranica.gif)
+
+Prikazan je pregled početne stranice s filmovima i javnim kolekcijama.
+
+### Registracija korisnika
+
+![Registracija korisnika](dokumentacija/gifovi/registracija.gif)
+
+Prikazan je postupak registracije novog korisnika unosom podataka u obrazac.
+
+### Pregled filmova i kolekcija
+
+![Pregled filmova i kolekcija](dokumentacija/gifovi/pregled-filmova-i-kolekcija.gif)
+
+Prikazano je pregledavanje filmova i kolekcija te otvaranje njihovih detalja.
+
+### Javni filmovi i korisnički profil
+
+![Javni filmovi i korisnički profil](dokumentacija/gifovi/javni-filmovi-i-profil.gif)
+
+Prikazano je pregledavanje javnih filmova i korisničkog profila s pripadajućim kolekcijama.
+
+### Administratorsko upravljanje korisnicima
+
+![Administratorsko upravljanje korisnicima](dokumentacija/gifovi/upravljanje-korisnicima-admin.gif)
+
+Prikazano je administratorsko sučelje za pregled korisnika, upravljanje blokadom računa i promjenu korisničkih uloga.
+
+## O projektu
+
 Projekt je izrađen u sklopu kolegija **Razvoj web aplikacija** na Fakultetu organizacije i informatike, prema zadatku „Upravljanje multimedijskim kolekcijama”. Prva faza obuhvaća REST servis i bazu podataka, a druga Angular klijent, doradu sučelja i dodatne funkcionalnosti.
 
 ## Funkcionalnosti
